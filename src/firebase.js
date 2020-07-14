@@ -3,6 +3,7 @@ import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/auth';
 
+// specific mealworm firebase database setup
 const firebaseApp = firebase.initializeApp({
   apiKey: 'AIzaSyCccgSU8DQpiGe06ZMSE-1h46LMjK5flNU',
   authDomain: 'mealworm-toby.firebaseapp.com',
@@ -15,6 +16,7 @@ const firebaseApp = firebase.initializeApp({
 
 export const firestore = firebase.firestore();
 
+// set authentication provider on firebase to be google.
 export const provider = new firebase.auth.GoogleAuthProvider();
 
 export default firebase;
