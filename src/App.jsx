@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import firebase, { provider } from './firebase';
 import NavBar from './component/NavBar';
+import Routes from './container/Routes/Routes';
 
 class App extends Component {
   // Set the signin of the user to null (coz noone signed in initially)
@@ -45,6 +46,7 @@ class App extends Component {
         <NavBar signIn={this.signIn} signOut={this.signOut} user={this.state.user} />
 
         <p>Hello {username}</p>
+        <Routes />
       </>
     );
   }

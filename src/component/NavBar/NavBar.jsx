@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './NavBar.module.scss';
+import { Routes, Link } from '@reach/router';
 
 class NavBar extends Component {
   state = {};
@@ -8,24 +9,26 @@ class NavBar extends Component {
     const { signIn, signOut, user } = this.props;
 
     if (user) {
-      return (
-        <span className={styles.displayWelcome} onClick={this.props.signOut}>
-          SIGN OUT
-        </span>
-      );
+      return <span onClick={signOut}>SIGN OUT</span>;
     } else {
-      return (
-        <span className={styles.displaySignIn} onClick={this.props.signIn}>
-          sign in now
-        </span>
-      );
+      return <span onClick={signIn}> sign in now</span>;
     }
   };
 
   render() {
     const { user } = this.props;
     // const disabledClass = user ? '' : styles.faStylesDisabled;
-    return <div>{this.getSignInOutJsx()}</div>;
+    return (
+      <>
+        <div>{this.getSignInOutJsx()}</div>
+        <Link to="personal">
+          <button>Detail</button>
+        </Link>
+        <Link to="photo">
+          <button>Photo</button>
+        </Link>
+      </>
+    );
   }
 }
 
